@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.os.FileObserver;
 import android.os.Handler;
 import android.os.IBinder;
+import android.widget.Toast;
 
 import com.base.lib.util.ToastUtil;
 import com.iwinad.uploadpicture.FtpUtil;

@@ -21,11 +21,15 @@ import butterknife.OnClick;
  */
 public class MoniorActivity extends AppBaseActivity {
 
+    public static MoniorActivity moniorActivity;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitor_layout);
         ButterKnife.bind(this);
+
+        moniorActivity = this;
 
         startMonitorService();
     }

@@ -50,9 +50,8 @@ public class FileListener extends FileObserver {
                 break;
 
             case FileObserver.CREATE:
-                if(!path.contains(".tmp")){
-                    MonitorService.getMonitorService().uploadImage(filePath+"/"+path);
-                }
+                System.out.println("event: 文件或目录被创建, path: " + path);
+                MonitorService.getMonitorService().uploadImage(filePath+"/"+path.replace(".tmp",""));
                 break;
         }
     }

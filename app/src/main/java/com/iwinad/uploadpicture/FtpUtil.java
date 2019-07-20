@@ -1,5 +1,6 @@
 package com.iwinad.uploadpicture;
 
+import com.base.lib.util.ToastUtil;
 import com.orhanobut.logger.Logger;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
@@ -50,6 +51,8 @@ public class FtpUtil {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                }else {
+
                 }
 
             } catch (Exception e) {
