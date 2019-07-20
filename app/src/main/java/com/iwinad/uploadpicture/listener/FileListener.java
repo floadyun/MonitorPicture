@@ -28,7 +28,7 @@ public class FileListener extends FileObserver {
     public FileListener(String path) {
         super(path);
     }
-
+    private String fileName;
     @Override
     public void onEvent(int event, String path) {
         final int action = event & FileObserver.ALL_EVENTS;
@@ -48,10 +48,13 @@ public class FileListener extends FileObserver {
             case FileObserver.MODIFY:
                 System.out.println("event: 文件或目录被修改, path: " + path);
                 break;
-
             case FileObserver.CREATE:
-                System.out.println("event: 文件或目录被创建, path: " + path);
-                MonitorService.getMonitorService().uploadImage(filePath+"/"+path.replace(".tmp",""));
+                if(!path.replace(".tmp","").equals(fileName)){
+                    System.out.println("event: 文件或目录被创建, path: " + path);
+                    fileName = path.replace(".tmp","");
+                    MonitorService.getMonitorService().uploadImage(filePath+"/"+fileName);
+                }
+
                 break;
         }
     }
