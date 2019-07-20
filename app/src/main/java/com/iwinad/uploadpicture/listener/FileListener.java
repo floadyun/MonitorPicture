@@ -51,7 +51,7 @@ public class FileListener extends FileObserver {
 
             case FileObserver.CREATE:
                 if(!path.contains(".tmp")){
-                    MonitorService.getMonitorService().uploadImage(filePath+"/"+path.replace(".tmp",""));
+                    MonitorService.getMonitorService().uploadImage(filePath+"/"+path);
                 }
                 break;
         }
