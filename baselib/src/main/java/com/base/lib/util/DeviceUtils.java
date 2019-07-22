@@ -24,9 +24,9 @@ import java.util.UUID;
  */
 public class DeviceUtils {
 
-    private static int DESIGN_WIDTH = 750;
+    private static int DESIGN_WIDTH = 1080;
 
-    private static int DESIGN_HEIGHT = 1334;
+    private static int DESIGN_HEIGHT = 2340;
 
     /** >=2.2 */
     public static boolean hasFroyo() {

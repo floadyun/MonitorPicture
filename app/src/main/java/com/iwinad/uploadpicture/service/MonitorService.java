@@ -94,7 +94,10 @@ public class MonitorService extends Service {
 	private void initFloatView(){
 		if(floatView!=null)return;
 		guideView = MoniorActivity.moniorActivity.getLayoutInflater().inflate(R.layout.view_float_capture,null);
-		floatView = new FloatView(MoniorActivity.moniorActivity, 0,DeviceUtils.getDeviceDimen(MoniorActivity.moniorActivity,120), guideView);
+		floatView = new FloatView(MoniorActivity.moniorActivity, 0,DeviceUtils.getDeviceDimenByHeight(MoniorActivity.moniorActivity,220), guideView);
+		guideView.setFocusable(false);
+		guideView.setClickable(false);
+		floatView.setIsAllowTouch(false);
 		floatView.setFloatViewClickListener(new FloatView.IFloatViewClick() {
 			@Override
 			public void onFloatViewClick() {

@@ -38,13 +38,13 @@ public class FloatView extends LinearLayout {
         wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
         wmParams = new WindowManager.LayoutParams();
         //设置你要添加控件的类型，TYPE_ALERT需要申明权限，TOast不需要，在某些定制系统中会禁止悬浮框显示，所以最后用TYPE_TOAST
-//        wmParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-        wmParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        wmParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+//        wmParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
         //设置控件在坐标计算规则，相当于屏幕左上角
         wmParams.gravity = Gravity.LEFT | Gravity.TOP;
         wmParams.format = PixelFormat.RGBA_8888;
         wmParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
-        wmParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        wmParams.width = WindowManager.LayoutParams.MATCH_PARENT;
         wmParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
         wmParams.x = (int) x;
         wmParams.y = (int) y;
