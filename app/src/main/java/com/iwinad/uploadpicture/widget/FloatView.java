@@ -38,8 +38,8 @@ public class FloatView extends LinearLayout {
         wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
         wmParams = new WindowManager.LayoutParams();
         //设置你要添加控件的类型，TYPE_ALERT需要申明权限，TOast不需要，在某些定制系统中会禁止悬浮框显示，所以最后用TYPE_TOAST
-        wmParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-//        wmParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+//        wmParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        wmParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
         //设置控件在坐标计算规则，相当于屏幕左上角
         wmParams.gravity = Gravity.LEFT | Gravity.TOP;
         wmParams.format = PixelFormat.RGBA_8888;
@@ -135,43 +135,6 @@ public class FloatView extends LinearLayout {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         // TODO Auto-generated method stub
         return isAllowTouch;
-    }
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                mTouchStartX = (int) event.getRawX() - this.getMeasuredWidth() / 2;
-                mTouchStartY = (int) event.getRawY() - this.getMeasuredHeight() / 2 ;
-                return true;
-            case MotionEvent.ACTION_MOVE:
-                wmParams.x = (int) event.getRawX() - this.getMeasuredWidth() / 2;
-                // 减25为状态栏的高度
-                wmParams.y = (int) event.getRawY() - this.getMeasuredHeight() / 2 ;
-                // 刷新
-                if (Math.abs(wmParams.y - mTouchStartY) > 10 || Math.abs(wmParams.x - mTouchStartX) > 10) {
-                    wm.updateViewLayout(this, wmParams);
-                }
-                return true;
-            case MotionEvent.ACTION_UP:
-                y = (int) event.getRawY() - this.getMeasuredHeight() / 2 ;
-                x = (int) event.getRawX() - this.getMeasuredWidth() / 2;
-                if (Math.abs(y - mTouchStartY) > 10 || Math.abs(x - mTouchStartX) > 10) {
-                    wm.updateViewLayout(this, wmParams);
-                } else {
-                    if (listener != null) {
-                        if(event.getX()>getMeasuredWidth()- DeviceUtils.getDeviceDimen(getContext(),100)&&event.getY()< DeviceUtils.getDeviceDimen(getContext(),100)){
-                            listener.onCloseViewClick();
-                        }else {
-                            listener.onFloatViewClick();
-                        }
-                    }
-                }
-                return true;
-            default:
-                break;
-        }
-        return false;
-
     }
     public interface IFloatViewClick {
         void onFloatViewClick();
