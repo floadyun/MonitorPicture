@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import com.base.lib.util.DeviceUtils;
-
 public class FloatView extends LinearLayout {
 
     private WindowManager.LayoutParams wmParams;
@@ -44,7 +42,7 @@ public class FloatView extends LinearLayout {
         wmParams.gravity = Gravity.LEFT | Gravity.TOP;
         wmParams.format = PixelFormat.RGBA_8888;
         wmParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
-        wmParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+        wmParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
         wmParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
         wmParams.x = (int) x;
         wmParams.y = (int) y;
