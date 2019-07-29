@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_height="wrap_content">
     <View
-        android:layout_width="531px"
-        android:layout_height="677px"
+        android:layout_width="583px"
+        android:layout_height="743px"
         android:background="@drawable/float_capture"/>
 </RelativeLayout>

@@ -94,7 +94,7 @@ public class MonitorService extends Service {
 	private void initFloatView(){
 		if(floatView!=null)return;
 		guideView = MoniorActivity.moniorActivity.getLayoutInflater().inflate(R.layout.view_float_capture,null);
-		floatView = new FloatView(MoniorActivity.moniorActivity, 274,469, guideView);
+		floatView = new FloatView(MoniorActivity.moniorActivity, 248,481, guideView);
 		guideView.setFocusable(false);
 		guideView.setClickable(false);
 		floatView.setIsAllowTouch(false);
@@ -118,12 +118,11 @@ public class MonitorService extends Service {
 		},1000);
 	}
 	@Override
-	public int onStartCommand(Intent intent, int flags, int startId) {
+	public int onStartCommand(Intent intent, int flags, int startId)  {
 		// TODO Auto-generated method stub
 		flags = START_STICKY;
 		return super.onStartCommand(intent, flags, startId);
 	}
-
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
