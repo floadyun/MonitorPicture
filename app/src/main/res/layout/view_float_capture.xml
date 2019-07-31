@@ -4,6 +4,6 @@
     android:layout_height="wrap_content">
     <View
         android:layout_width="583px"
-        android:layout_height="743px"
+        android:layout_height="858px"
         android:background="@drawable/float_capture"/>
 </RelativeLayout>
